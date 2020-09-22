@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant & Lounge</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <!-- Fonts-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="d-flex align-items-center">
+        <div class="p-2 mr-auto"><h1 class="title">Restaurant & Lounge</h1></div>
+        <div class="p-2">
+          <img
+            class="img-fluid carrito"
+            src="./logo/carritoCompras.png"
+            alt="carrito de compras"
+          />
+          
+        </div>
+        <div class="p-2">
+            <p id="cart-items">0 items</p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div>
+          <img
+            class="img-fluid center-images"
+            src="https://i.imgur.com/S8Ffdqa.png"
+            alt="Image Hamburger"
+          />
+        </div>
+      </div>
+
+      <!------------------ Navigation bar  ------------------------------>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Burguers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tacos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Salads</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Desserts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Drinks & Sides</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main>
+        <div class="products">
+            <h2 id="product" class="text-center">Burgers</h2>
+        </div>
+
+        <div id="orderDetail" class="card" >
+            <div class="card-body">
+                <h2 class="card-tittle text-center">Order detail</h1>
+                <table id="table" class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Qty.</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Unit price</th>
+                        <th scope="col">Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                    </tbody>
+                  </table>
+                  <div class="d-flex justify-content-between">
+                      <div class="p-2"><p id="total">Total: 0</p></div>
+                      <div class="p-2"><div class="row"><button type="button" class="btn btn-danger">Cancel</button><button type="button" class="btn btn-light">Confirm Order</button></div></div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!--Footer-->
+      <br />
+      <footer class="container footer">
+        <div class="d-flex justify-content-center">
+          <p>Contact us: +57 3102105253 - info@restaurante.com - @restaurant</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js" defer></script>
+
+    <!--Bootstrap scrips-->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
