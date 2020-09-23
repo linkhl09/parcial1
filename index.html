@@ -17,37 +17,42 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
+      <header>
       <div class="d-flex align-items-center">
-        <div class="p-2 mr-auto"><h1 class="title">Restaurant & Lounge</h1></div>
-        <div class="p-2">
+        <div class="p-2 mr-auto">
+          <h1 class="title">Restaurant & Lounge</h1>
+        </div>
+        <div class="p-2" onclick="cartButton()">
           <img
             class="img-fluid carrito"
             src="./logo/carritoCompras.png"
             alt="carrito de compras"
           />
-          
         </div>
-        <div class="p-2">
-            <p id="cart-items">0 items</p>
+        <div class="p-2" onclick="cartButton()">
+          <p id="cart-items">0 items</p>
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <div>
           <img
-            class="img-fluid center-images"
+            class="img-fluid main-tittle"
             src="https://i.imgur.com/S8Ffdqa.png"
             alt="Image Hamburger"
           />
-        </div>
       </div>
-
-      <!------------------ Navigation bar  ------------------------------>
+    </header>
+    
+      <!-- Navigation bar -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button
           class="navbar-toggler"
@@ -64,55 +69,114 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Burguers</a>
+              <a class="nav-link" href="#" onclick="loadMenu('burgers')">Burguers<a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Tacos</a>
+              <a class="nav-link" href="#" onclick="loadMenu('tacos')">Tacos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Salads</a>
+              <a class="nav-link" href="#" onclick="loadMenu('salads')">Salads</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Desserts</a>
+              <a class="nav-link" href="#" onclick="loadMenu('desserts')">Desserts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Drinks & Sides</a>
+              <a class="nav-link" href="#" onclick="loadMenu('drinksSlides')">Drinks & Sides</a>
             </li>
           </ul>
         </div>
       </nav>
 
+      <!--Main-->
       <main>
-        <div class="products">
-            <h2 id="product" class="text-center">Burgers</h2>
+        <div class="d-flex justify-content-center main-tittle">
+          <h2 id="product" class="text-center"></h2>
         </div>
+        <div id="products" class="row" ><!--From the jS--></div>
 
-        <div id="orderDetail" class="card" >
-            <div class="card-body">
-                <h2 class="card-tittle text-center">Order detail</h1>
-                <table id="table" class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">Item</th>
-                        <th scope="col">Qty.</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Unit price</th>
-                        <th scope="col">Amount</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      
-                    </tbody>
-                  </table>
-                  <div class="d-flex justify-content-between">
-                      <div class="p-2"><p id="total">Total: 0</p></div>
-                      <div class="p-2"><div class="row"><button type="button" class="btn btn-danger">Cancel</button><button type="button" class="btn btn-light">Confirm Order</button></div></div>
-                  </div>
+        <div id="orderDetail" hidden="false">
+          <table id="table" class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Qty.</th>
+                <th scope="col">Description</th>
+                <th scope="col">Unit price</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!--From the jS-->
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-between">
+            <div class="p-2"><p id="total">Total: $0</p></div>
+            <div class="p-2">
+              <div class="row">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-toggle="modal"
+                  data-target="#cancelModal"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  onclick="confirmOrder()"
+                >
+                  Confirm Order
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </main>
 
+      <!--MODALS-->
+      <div
+        class="modal fade"
+        id="cancelModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Cancel the order
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure about cancelling the order?
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-light"
+                data-dismiss="modal"
+                onclick="cancelOrder()"
+              >
+                Yes, I want to cancel the order
+              </button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                No, I want to continue adding products
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <!--Footer-->
       <br />
       <footer class="container footer">
@@ -122,7 +186,7 @@
       </footer>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 
     <!--Bootstrap scrips-->
     <script
