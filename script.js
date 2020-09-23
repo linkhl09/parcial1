@@ -38,8 +38,6 @@ fetch(
 //--------------------------------------------------
 // AUX METHODS
 //--------------------------------------------------
-ASDSADSADASVSDV02
-3510
 /**
  * Creates a row for the cart table.
  * @param {String} itemTxt num of the item.
