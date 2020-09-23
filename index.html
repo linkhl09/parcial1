@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--Meta data-->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Andres Felipe Hernandez Leon">
     <title>Restaurant & Lounge</title>
+
+    <!--Title-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -69,7 +74,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#" onclick="loadMenu('burgers')">Burguers<a>
+              <a class="nav-link" href="#" onclick="loadMenu('burgers')">Burguers</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" onclick="loadMenu('tacos')">Tacos</a>
@@ -90,11 +95,11 @@
       <!--Main-->
       <main>
         <div class="d-flex justify-content-center main-tittle">
-          <h2 id="product" class="text-center"></h2>
+          <h2 id="product" class="text-center">burgers</h2>
         </div>
         <div id="products" class="row" ><!--From the jS--></div>
 
-        <div id="orderDetail" hidden="false">
+        <div id="orderDetail" hidden>
           <table id="table" class="table table-striped">
             <thead>
               <tr>
@@ -114,6 +119,7 @@
             <div class="p-2">
               <div class="row">
                 <button
+                  id="cancel-but"
                   type="button"
                   class="btn btn-danger"
                   data-toggle="modal"
@@ -140,7 +146,7 @@
         id="cancelModal"
         tabindex="-1"
         role="dialog"
-        aria-labelledby="exampleModalCenterTitle"
+        aria-labelledby="cancel-but"
         aria-hidden="true"
       >
         <div class="modal-dialog modal-dialog-centered" role="document">

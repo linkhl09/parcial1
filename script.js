@@ -38,7 +38,8 @@ fetch(
 //--------------------------------------------------
 // AUX METHODS
 //--------------------------------------------------
-
+ASDSADSADASVSDV02
+3510
 /**
  * Creates a row for the cart table.
  * @param {String} itemTxt num of the item.
@@ -76,6 +77,10 @@ function loadMenu(category) {
   let productsList = information[category];
   document.getElementById("product").textContent = category;
   let products = document.getElementById("products");
+  if (products.hidden) {
+    toggleHidden("#products");
+    toggleHidden("#orderDetail");
+  }
   while (products.firstChild) {
     products.removeChild(products.firstChild);
   }
@@ -125,20 +130,26 @@ function loadMenu(category) {
 function addToCart(category, i) {
   let product = information[category][i];
   let pCart = cart.find((element) => element.product === product);
-  
+
   if (pCart === undefined)
-    cart.push({ product: product, quantity: 0, item: cart.length + 1});
-  
+    cart.push({ product: product, quantity: 0, item: cart.length + 1 });
+
   pCart = cart.find((element) => element.product === product);
   pCart.quantity++;
   total += product.price;
 
   clearTable();
-  document.getElementById('cart-items').textContent = cart.length + " items";
-  document.getElementById('total').textContent = "Total: $" + total + " items";
+  document.getElementById("cart-items").textContent = cart.length + " items";
+  document.getElementById("total").textContent = "Total: $" + total + " items";
   cart.forEach((element) => {
     let amount = element.product.price * element.quantity;
-    addRowCart(element.item, element.quantity, element.product.description, element.product.price, amount);
+    addRowCart(
+      element.item,
+      element.quantity,
+      element.product.description,
+      element.product.price,
+      amount
+    );
   });
 }
 
@@ -149,8 +160,8 @@ function cancelOrder() {
 }
 
 function clearTable() {
-  document.getElementById('cart-items').textContent = "0 items";
-  document.getElementById('total').textContent = "Total: $" + 0 + " items";
+  document.getElementById("cart-items").textContent = "0 items";
+  document.getElementById("total").textContent = "Total: $" + 0 + " items";
   let tableBody = document.getElementsByTagName("tbody");
   tableBody[0].remove();
   let table = document.getElementById("table");
